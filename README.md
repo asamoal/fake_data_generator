@@ -12,6 +12,13 @@ Example:
 
 This command will generate three directories named 'dataset', 'dataset2', and 'dataset3', each containing 10 files of size 10MB, named `dataset_001.txt`, `dataset_002.txt`, etc. Each directory will also contain a `dataset_manifest.txt` file listing the details of all generated files and a `dataset_checksums.txt` file providing the MD5 and SHA256 checksums of each file.
 
+If your terminal supports brace expansion (like Bash, Zsh, and similar shells), you can leverage this to specify multiple patterns easily. 
+
+For example:
+```bash python3 data_generator.py --num_files 10 --size 10MB --pattern $(echo dataset{1,2,3})```
+
+This command will use brace expansion to generate three patterns: 'dataset1', 'dataset2', and 'dataset3'.
+
 Arguments:
 - `--num_files` - The number of files to generate
 - `--size` - The size of each file, which could be specified in bytes, or with units KB, MB, GB (e.g. 1KB, 1MB, 1GB)

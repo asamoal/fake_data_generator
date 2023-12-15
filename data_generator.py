@@ -64,6 +64,22 @@ def convert_bytes(num):
 
 
 def generate_files(num_files, file_size, name_pattern):
+    print("""
+     __  __    __    ___             __  __             
+     \ \/ /__ / /_  / _ | ___  ___  / /_/ /  ___ ____   
+      \  / -_) __/ / __ |/ _ \/ _ \/ __/ _ \/ -_) __/   
+      /_/\__/\__/_/_/ |_/_//_/\___/\__/_//_/\__/_/      
+      / __/__ _/ /_____                                 
+     / _// _ `/  '_/ -_)                                
+    /_/__\_,_/_/\_\\__/                                 
+      / _ \___ _/ /____ _                               
+     / // / _ `/ __/ _ `/                               
+    /____/\_,_/\__/\_,_/         __                     
+     / ___/__ ___  ___ _______ _/ /____  ____           
+    / (_ / -_) _ \/ -_) __/ _ `/ __/ _ \/ __/           
+    \___/\__/_//_/\__/_/  \_,_/\__/\___/_/              
+    """)
+
     fake = Faker()
 
     manifest_file = ""
@@ -89,6 +105,7 @@ def generate_files(num_files, file_size, name_pattern):
     total_start_time = time.time() * 1000
     total_size = 0
 
+    print(f"Generating for pattern: {pattern}")
     for i in range(1, num_files + 1):
         single_start_time = time.time() * 1000
 
@@ -129,7 +146,7 @@ def generate_files(num_files, file_size, name_pattern):
     print(f"Generated {num_files} files of {convert_bytes(file_size)} each, "  # use convert_bytes here
           f"with names following the pattern {name_pattern}.")
     print(f"Total size: {convert_bytes(total_size)}")
-    print(f"Total time taken: {human_time_span(total_end_time - total_start_time)}")
+    print(f"Total time taken: {human_time_span(total_end_time - total_start_time)}\n")
 
 
 # Set up argument parser
