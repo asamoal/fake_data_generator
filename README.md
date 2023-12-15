@@ -1,21 +1,21 @@
 # Fake Dataset Generator
 
-This Python script generates a package of fake dataset files, each of a specific size, along with a manifest file that details the file names, sizes and creation dates. A checksum file is also generated which provides both MD5 and SHA256 checksums (in Hex and Base64 formats) for each file. All the files are put together into a single directory, named as per the user specified pattern, forming a neat package.
+This Python script generates a package of fake dataset files, each of a specific size, along with a manifest file that details the file names, sizes and creation dates. A checksum file is also generated which provides both MD5 and SHA256 checksums (in Hex and Base64 formats) for each file. All the files are put together into one or more directories, named as per the user specified patterns, forming a group of neat packages.
 
 ## Usage
 
-You can run the script from the command line, specifying the number of files to generate, the size of each file and a naming pattern for the files. 
+You can run the script from the command line, specifying the number of files to generate, the size of each file and one or more naming patterns for the files.
 
 Example:
 
-```bash python3 data_generator.py --num_files 10 --size 10MB --pattern dataset```
+```bash python3 data_generator.py --num_files 10 --size 10MB --pattern dataset dataset2 dataset3```
 
-This command will generate a directory named 'dataset' containing 10 files of 1MB each, named `dataset_001.txt`, `dataset_002.txt`, etc. The directory will also contain a `dataset_manifest.txt` file listing the details of all generated files and a `dataset_checksums.txt` file providing the MD5 and SHA256 checksums of each file.
+This command will generate three directories named 'dataset', 'dataset2', and 'dataset3', each containing 10 files of size 10MB, named `dataset_001.txt`, `dataset_002.txt`, etc. Each directory will also contain a `dataset_manifest.txt` file listing the details of all generated files and a `dataset_checksums.txt` file providing the MD5 and SHA256 checksums of each file.
 
 Arguments:
 - `--num_files` - The number of files to generate
 - `--size` - The size of each file, which could be specified in bytes, or with units KB, MB, GB (e.g. 1KB, 1MB, 1GB)
-- `--pattern` - The naming pattern for the files
+- `--pattern` - One or more naming patterns for the files
 
 Arguments are required. If the script is run without any arguments or with incorrect arguments, it will display an error message along with the help message.
 

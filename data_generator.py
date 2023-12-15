@@ -136,7 +136,7 @@ def generate_files(num_files, file_size, name_pattern):
 parser = CustomArgumentParser()
 parser.add_argument("-n", "--num_files", type=int, help="number of files to generate")
 parser.add_argument("-s", "--size", type=str, help="size of each file in KB, MB or GB")
-parser.add_argument("-p", "--pattern", type=str, help="name pattern for the files")
+parser.add_argument("-p", "--pattern", type=str, nargs='+', help="name pattern for the files")
 
 # Parse arguments
 args = parser.parse_args()
@@ -148,4 +148,5 @@ if not all(expected_args):
 
 # Call function
 size_in_bytes = parse_size(args.size)
-generate_files(args.num_files, size_in_bytes, args.pattern)
+for pattern in args.pattern:
+    generate_files(args.num_files, size_in_bytes, pattern)
